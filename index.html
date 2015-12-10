@@ -89,15 +89,56 @@ and writes each entry to the appropriate output file.</li>
     outfileA<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
     outfileB<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
     outfileC<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
-    outfileD<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
-```P
+    outfileD<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()</pre></div>
 
+<ol>
+<li>accountsort() reads the contents of the sorted bank files (A,B,C,D), scans
+for the word 'account' and writes to the appropriate output file.</li>
+</ol>
 
-## Question #<span class="pl-c1">2</span>: Are the topics <span class="pl-k">and</span> “substance” consistent across the industry <span class="pl-k">or</span> are they isolated to individual banks? 
+<div class="highlight highlight-source-abl"><pre>def <span class="pl-c1"><span class="pl-c1">accountsort</span></span>():
+    <span class="pl-s">"<span class="pl-cce">""</span></span>
+<span class="pl-s">    This function reads the contents of the sorted bank files (A,B,C,D), scans</span>
+<span class="pl-s">    for the word 'account' and writes to the appropriate output file.</span>
+<span class="pl-s">    <span class="pl-cce">""</span>"</span>
+    infileA <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"bankA.txt"</span><span class="pl-k">,</span> <span class="pl-s">"rb"</span>)
+    infileB <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"bankB.txt"</span><span class="pl-k">,</span> <span class="pl-s">"rb"</span>)
+    infileC <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"bankC.txt"</span><span class="pl-k">,</span> <span class="pl-s">"rb"</span>)
+    infileD <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"bankD.txt"</span><span class="pl-k">,</span> <span class="pl-s">"rb"</span>)
+    accountoutA <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"accountA.txt"</span><span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    accountoutB <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"accountB.txt"</span><span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    accountoutC <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"accountC.txt"</span><span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    accountoutD <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(<span class="pl-s">"accountD.txt"</span><span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    <span class="pl-k">for</span> line in infileA:
+        <span class="pl-k">if</span> b<span class="pl-s">"account"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>accountoutA)
+    <span class="pl-k">for</span> line in infileB:
+        <span class="pl-k">if</span> b<span class="pl-s">"account"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>accountoutB)
+    <span class="pl-k">for</span> line in infileC:
+        <span class="pl-k">if</span> b<span class="pl-s">"account"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>accountoutC)
+    <span class="pl-k">for</span> line in infileD:
+        <span class="pl-k">if</span> b<span class="pl-s">"account"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>accountoutD)
 
-### List of Topics <span class="pl-k">and</span> Substance
+    infileA<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    infileB<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    infileC<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    infileD<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    accountoutA<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    accountoutB<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    accountoutC<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    accountoutD<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()</pre></div>
 
-### Results <span class="pl-k">and</span> Insights</pre></div>
+<h2>
+<a id="question-2-are-the-topics-and-substance-consistent-across-the-industry-or-are-they-isolated-to-individual-banks" class="anchor" href="#question-2-are-the-topics-and-substance-consistent-across-the-industry-or-are-they-isolated-to-individual-banks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #2: Are the topics and “substance” consistent across the industry or are they isolated to individual banks?</h2>
+
+<h3>
+<a id="list-of-topics-and-substance" class="anchor" href="#list-of-topics-and-substance" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of Topics and Substance</h3>
+
+<h3>
+<a id="results-and-insights" class="anchor" href="#results-and-insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results and Insights</h3>
         </section>
 
         <footer>
