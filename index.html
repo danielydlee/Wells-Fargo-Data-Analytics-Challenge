@@ -37,7 +37,7 @@
 <p>Dialogues on social media nowadays can provide tremendous insight into the behaviours, desires, pains, and thoughts of consumers. This project that our group worked on developed a repeatable process that identifies, classifies, and extracts the underlying drivers of consumer financial conversations and comments in social media data.</p>
 
 <h2>
-<a id="question-1-what-financial-topics-do-consumers-discuss-on-social-media-and-what-caused-the-consumers-to-post-about-this-topic" class="anchor" href="#question-1-what-financial-topics-do-consumers-discuss-on-social-media-and-what-caused-the-consumers-to-post-about-this-topic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #1: What financial topics* do consumers discuss on social media and what caused the consumers to post about this topic?</h2>
+<a id="question-1-what-financial-topics-do-consumers-discuss-on-social-media-and-what-caused-the-consumers-to-post-about-this-topic" class="anchor" href="#question-1-what-financial-topics-do-consumers-discuss-on-social-media-and-what-caused-the-consumers-to-post-about-this-topic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #1: What financial topics do consumers discuss on social media and what caused the consumers to post about this topic?</h2>
 
 <h3>
 <a id="approach-and-methodology" class="anchor" href="#approach-and-methodology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Approach and Methodology</h3>
@@ -52,14 +52,52 @@
 <h3>
 <a id="code" class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h3>
 
-<h2>
-<a id="question-2-are-the-topics-and-substance-consistent-across-the-industry-or-are-they-isolated-to-individual-banks" class="anchor" href="#question-2-are-the-topics-and-substance-consistent-across-the-industry-or-are-they-isolated-to-individual-banks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Question #2: Are the topics and “substance” consistent across the industry or are they isolated to individual banks?</h2>
+<p>Below are the codes that were used during our approach and methodology to sort and analyze the given dataset of tweets and Facebook comments:</p>
 
-<h3>
-<a id="list-of-topics-and-substance" class="anchor" href="#list-of-topics-and-substance" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of Topics and Substance</h3>
+<ol>
+<li>banksort() reads the contents of a text file, scans for Bank A,B,C,D,
+and writes each entry to the appropriate output file.</li>
+</ol>
 
-<h3>
-<a id="results-and-insights" class="anchor" href="#results-and-insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results and Insights</h3>
+<div class="highlight highlight-source-abl"><pre>def <span class="pl-c1"><span class="pl-c1">banksort</span></span>():
+    <span class="pl-s">"<span class="pl-cce">""</span></span>
+<span class="pl-s">    This function reads the contents of a text file, scans for BankA,B,C,D,</span>
+<span class="pl-s">    and writes the list item to the appropriate output</span>
+<span class="pl-s">    file. </span>
+<span class="pl-s">    <span class="pl-cce">""</span>"</span>
+    infileName <span class="pl-k">=</span> <span class="pl-s">"DataSet.txt"</span>
+    infile <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(infileName<span class="pl-k">,</span> <span class="pl-s">"rb"</span>)
+    bankAoutfile <span class="pl-k">=</span> <span class="pl-s">"bankA.txt"</span>
+    bankBoutfile <span class="pl-k">=</span> <span class="pl-s">"bankB.txt"</span>
+    bankCoutfile <span class="pl-k">=</span> <span class="pl-s">"bankC.txt"</span>
+    bankDoutfile <span class="pl-k">=</span> <span class="pl-s">"bankD.txt"</span>
+    outfileA <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(bankAoutfile<span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    outfileB <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(bankBoutfile<span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    outfileC <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(bankCoutfile<span class="pl-k">,</span> <span class="pl-s">"w"</span>)
+    outfileD <span class="pl-k">=</span> <span class="pl-c1"><span class="pl-c1">open</span></span>(bankDoutfile<span class="pl-k">,</span> <span class="pl-s">"w"</span>)    
+    <span class="pl-k">for</span> line in infile:
+        <span class="pl-k">if</span> b<span class="pl-s">"BankA"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>outfileA)
+        elif b<span class="pl-s">"BankB"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>outfileB)
+        elif b<span class="pl-s">"BankC"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>outfileC)
+        elif b<span class="pl-s">"BankD"</span> in line:
+            <span class="pl-c1"><span class="pl-c1">print</span></span>(line<span class="pl-k">,</span> file<span class="pl-k">=</span>outfileD)
+
+    infile<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    outfileA<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    outfileB<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    outfileC<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+    outfileD<span class="pl-k">.</span><span class="pl-c1"><span class="pl-c1">close</span></span>()
+```P
+
+
+## Question #<span class="pl-c1">2</span>: Are the topics <span class="pl-k">and</span> “substance” consistent across the industry <span class="pl-k">or</span> are they isolated to individual banks? 
+
+### List of Topics <span class="pl-k">and</span> Substance
+
+### Results <span class="pl-k">and</span> Insights</pre></div>
         </section>
 
         <footer>
